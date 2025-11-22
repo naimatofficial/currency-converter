@@ -5,8 +5,7 @@ import { CurrencyCard } from './CurrencyCard';
 // import { ConvertedAmount } from '../types/currency';
 
 export const CurrencyConverter: React.FC = () => {
-	const { rates, currencies, loading, error, convertCurrency, refreshRates } =
-		useCurrency();
+	const { rates, currencies, loading, error, convertCurrency } = useCurrency();
 
 	const [fromAmount, setFromAmount] = useState<number>(1);
 	const [toAmount, setToAmount] = useState<number>(0);
@@ -88,13 +87,13 @@ export const CurrencyConverter: React.FC = () => {
 		<div className='converter-container'>
 			<div className='converter-header'>
 				<h1>Currency Converter</h1>
-				<button
+				{/* <button
 					onClick={refreshRates}
 					className='refresh-btn'
 					disabled={loading}
 				>
 					{loading ? 'Refreshing...' : '🔄 Refresh'}
-				</button>
+				</button> */}
 			</div>
 
 			{error && <div className='error-message'>⚠️ {error}</div>}
