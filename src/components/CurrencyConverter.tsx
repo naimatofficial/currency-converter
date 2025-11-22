@@ -4,8 +4,7 @@ import { useCurrency } from '../hooks/useCurrency';
 import { CurrencyCard } from './CurrencyCard';
 
 export const CurrencyConverter: React.FC = () => {
-	const { rates, currencies, loading, error, convertCurrency, refreshRates } =
-		useCurrency();
+	const { rates, currencies, loading, error, convertCurrency } = useCurrency();
 
 	const [fromAmount, setFromAmount] = useState<number>(1);
 	const [toAmount, setToAmount] = useState<number>(0);

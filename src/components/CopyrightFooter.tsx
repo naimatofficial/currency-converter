@@ -11,10 +11,6 @@ export const CopyrightFooter: React.FC = () => {
 		{ name: 'API Integrations', icon: '🔌' },
 	];
 
-	const handleEmailClick = () => {
-		window.location.href = 'mailto:naimatullah.dev@gmail.com';
-	};
-
 	return (
 		<div className='copyright-footer'>
 			<div className='copyright-text'>
