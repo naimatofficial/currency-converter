@@ -1,11 +1,25 @@
+import { CopyrightFooter } from './components/CopyrightFooter';
 import { CurrencyConverter } from './components/CurrencyConverter';
+import { OpenSourceMessage } from './components/OpenSourceMessage';
+import { SocialLinks } from './components/SocialLinks';
 import './styles/index.css';
+import './styles/links.css';
 
 function App() {
 	return (
-		<div className='App'>
+		<main className='main'>
 			<CurrencyConverter />
-		</div>
+
+			<div className=''>
+				<SocialLinks />
+			</div>
+
+			<div className=''>
+				<OpenSourceMessage />
+			</div>
+
+			<CopyrightFooter />
+		</main>
 	);
 }
 

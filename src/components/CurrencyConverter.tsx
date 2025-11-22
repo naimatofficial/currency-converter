@@ -2,10 +2,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useCurrency } from '../hooks/useCurrency';
 import { CurrencyCard } from './CurrencyCard';
-// import { ConvertedAmount } from '../types/currency';
 
 export const CurrencyConverter: React.FC = () => {
-	const { rates, currencies, loading, error, convertCurrency } = useCurrency();
+	const { rates, currencies, loading, error, convertCurrency, refreshRates } =
+		useCurrency();
 
 	const [fromAmount, setFromAmount] = useState<number>(1);
 	const [toAmount, setToAmount] = useState<number>(0);
@@ -35,15 +35,11 @@ export const CurrencyConverter: React.FC = () => {
 
 	useEffect(() => {
 		if (currencies.length > 0) {
-			setFromCurrency((prev) =>
-				currencies.includes(prev) ? prev : currencies[0]
-			);
-
-			setToCurrency((prev) =>
-				currencies.includes(prev) ? prev : currencies[1] || currencies[0]
-			);
+			if (!currencies.includes(fromCurrency)) setFromCurrency(currencies[0]);
+			if (!currencies.includes(toCurrency))
+				setToCurrency(currencies[1] || currencies[0]);
 		}
-	}, [currencies]);
+	}, [currencies, fromCurrency, toCurrency]);
 
 	useEffect(() => {
 		updateConversion();
@@ -84,9 +80,9 @@ export const CurrencyConverter: React.FC = () => {
 	}
 
 	return (
-		<div className='converter-container'>
+		<div className='container'>
 			<div className='converter-header'>
-				<h1>Currency Converter</h1>
+				<h1>💱 Currency Converter</h1>
 				{/* <button
 					onClick={refreshRates}
 					className='refresh-btn'

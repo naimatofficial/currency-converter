@@ -16,16 +16,17 @@ body {
 
 #root {
 	width: 100%;
-	max-width: 500px;
+	max-width: 700px;
 }
 
-.converter-container {
+.container {
 	background: white;
 	border-radius: 20px;
 	padding: 30px;
 	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 	backdrop-filter: blur(10px);
 	animation: slideUp 0.5s ease-out;
+	margin-bottom: 20px;
 }
 
 @keyframes slideUp {
@@ -228,5 +229,119 @@ body {
 
 	.currency-select {
 		width: 100%;
+	}
+}
+
+/* Copyright Footer */
+.copyright-footer {
+	margin-top: 20px;
+	text-align: center;
+	padding: 20px;
+	background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+	border-radius: 15px;
+	color: white;
+	position: relative;
+	overflow: hidden;
+}
+
+.copyright-footer::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 3px;
+	background: linear-gradient(90deg, #667eea, #f093fb, #f5576c, #4facfe);
+	animation: rainbowBorder 3s linear infinite;
+}
+
+@keyframes rainbowBorder {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.copyright-text {
+	font-size: 16px;
+	font-weight: 600;
+	margin-bottom: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+}
+
+.copyright-subtext {
+	font-size: 14px;
+	opacity: 0.8;
+	margin-bottom: 12px;
+}
+
+.copyright-heart {
+	color: #ff6b6b;
+	animation: heartbeat 2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+	0%,
+	100% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.1);
+	}
+}
+
+.tech-stack {
+	display: flex;
+	justify-content: center;
+	gap: 15px;
+	flex-wrap: wrap;
+	margin-top: 15px;
+}
+
+.tech-badge {
+	background: rgba(255, 255, 255, 0.1);
+	padding: 8px 15px;
+	border-radius: 20px;
+	font-size: 12px;
+	font-weight: 500;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	transition: all 0.3s ease;
+}
+
+.tech-badge:hover {
+	background: rgba(255, 255, 255, 0.2);
+	transform: translateY(-2px);
+}
+
+.developer-name {
+	background: linear-gradient(135deg, #667eea, #f093fb);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	font-weight: 700;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+	.copyright-text {
+		flex-direction: column;
+		gap: 5px;
+	}
+
+	.tech-stack {
+		gap: 10px;
+	}
+
+	.tech-badge {
+		padding: 6px 12px;
+		font-size: 11px;
 	}
 }
